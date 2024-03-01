@@ -1,0 +1,17 @@
+# Uncomment to override defaults
+
+## Runs the program in a loop so that can be used multiple times without having to relaunch the program
+# LOOP_PROGRAM="true"
+
+## These are required for as much as I can tell, do not modify unless there are breaking sope changes on the API
+# SPOTIFY_CLIENT_SCOPES="user-library-read playlist-read-private playlist-modify-private playlist-modify-public"
+
+## This controls which albums are selected, remove some if you do not want some of these
+## Compilation is needed for some artists where a song may only appear in some random compliation album on Spotify. Common in foreign music
+# INCLUDE_GROUPS="album,single,appears_on,compilation,"
+
+## NEWEST_ALBUM_FIRST will change the order in which tracks of albums are returned
+## PRESERVE_TRACK_ORDER will preserve the order of tracks if albums are ordered newest first
+##   if false and album first is true then it will reverse the order of tracks for each album to get a "newest track first" style of order
+# NEWEST_ALBUM_FIRST="false"
+# PRESERVE_TRACK_ORDER="true"

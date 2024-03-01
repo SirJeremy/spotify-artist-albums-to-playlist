@@ -1,0 +1,4 @@
+# Python >=3.10
+pydantic==2.6.3
+python-dotenv==1.0.1
+spotipy==2.22.1

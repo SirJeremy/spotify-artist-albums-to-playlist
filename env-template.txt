@@ -1,0 +1,4 @@
+# Secrets are required for this project. Just copy the following into a ".env" file and fill out the the missing info.
+CLIENT_ID=""
+CLIENT_SECRET=""
+REDIRECT_URI=""
