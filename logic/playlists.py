@@ -147,12 +147,12 @@ def _select_playlist_from_search(client:spotipy.Spotify, search:str, owner_ids:l
         elif uin == choice_more:
             previous_length = len(results)
             limit = 10
-            (offset, results) = _find_playlists_of_owner(client=client, playlist_name=search, limit=limit,
+            (offset, new_results) = _find_playlists_of_owner(client=client, playlist_name=search, limit=limit,
                                                             offset=offset, owner_ids=owner_ids)
-            if len(results) == 0:
+            if len(new_results) == 0:
                 print("No more results.")
                 continue
-            results.extend(results)
+            results.extend(new_results)
             last_results_idx = previous_length
             for i in range(last_results_idx, len(results)):
                 print(f"{(i+1):>2d} {results[i].name} - {results[i].owner_name}")

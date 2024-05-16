@@ -103,15 +103,15 @@ def _select_artist_from_search(client:spotipy.Spotify, search:str, offset:int, r
             elif uin == choice_more:
                 limit = 10
                 offset += limit
-                results = client.search(q=search, limit=limit, offset=offset, type="artist")['artists']['items']
-                if len(results) == 0:
+                new_results = client.search(q=search, limit=limit, offset=offset, type="artist")['artists']['items']
+                if len(new_results) == 0:
                     print("No more results.")
                     offset -= limit # reset to last valid offeset with results for reprint (r)
                     continue
 
-                for idx, r in enumerate(results):
+                results.extend(new_results)
+                for idx, r in enumerate(new_results):
                     print(f"{(idx+1+offset):>2d} {r['name']}")
-                results.extend(results)
                 continue
             # parse for selection
             else:
