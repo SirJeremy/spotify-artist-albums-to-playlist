@@ -4,8 +4,8 @@ class Playlist(BaseModel):
     name:str
     id:str
     description:str
-    owner_id:str = Field(alias=AliasPath('owner', 'display_name'))
-    owner_name:str = Field(alias=AliasPath('owner', 'id'))
+    owner_id:str = Field(alias=AliasPath('owner', 'id'))
+    owner_name:str = Field(alias=AliasPath('owner', 'display_name'))
     spoitfy_uri:str = Field(alias='uri')
     
     def has_owner(self, owner_ids:list[str]) -> bool:

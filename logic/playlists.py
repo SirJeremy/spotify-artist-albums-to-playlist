@@ -59,7 +59,9 @@ def create_playlist(client:spotipy.Spotify, user_id:str) -> Playlist:
         print("Invalid name.")
         
     print(f"Creating playlist '{name}'")
-    return Playlist.model_validate(client.user_playlist_create(user=user_id, name=name, public=False))
+    raw_playlist = client.user_playlist_create(user=user_id, name=name, public=False)
+    raw_playlist['owner']['display_name'] = user_id # api change broke code, this is workaround. value unimportant
+    return Playlist.model_validate(raw_playlist)
 
 def search_for_playlist(client:spotipy.Spotify, owner_ids:list[str]) -> Playlist|None:
     choice_quit = "!q"
