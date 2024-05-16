@@ -73,6 +73,8 @@ def get_artists_from_link(client:spotipy.Spotify) -> Artist|None:
             break
         else:
             artist = None
+    
+    return artist
 
 def _select_artist_from_search(client:spotipy.Spotify, search:str, offset:int, results:list[Artist]) -> int|None:
     choice_print_all = "p"

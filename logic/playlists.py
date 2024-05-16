@@ -93,6 +93,8 @@ def search_for_playlist(client:spotipy.Spotify, owner_ids:list[str]) -> Playlist
             return results[selection]
 
 def get_playlist_from_link(client:spotipy.Spotify) -> Playlist|None:
+    playlist:Playlist = None
+
     choice_quit = "!q"
     choice_confirm = "y"
 
@@ -111,6 +113,8 @@ def get_playlist_from_link(client:spotipy.Spotify) -> Playlist|None:
             break
         else:
             playlist = None
+
+    return playlist
 
 def _select_playlist_from_search(client:spotipy.Spotify, search:str, owner_ids:list[str], offset:int, results:list[Playlist]) -> int|None:
     choice_print_all = "p"
